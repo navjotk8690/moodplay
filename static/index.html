@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="MoodPlay creates a short browser game from emotional cues in your text."
+  />
+  <title>MoodPlay</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <div class="ambient-background" aria-hidden="true">
+    <div class="sun-glow"></div>
+    <div class="pastel-cloud cloud-one"></div>
+    <div class="pastel-cloud cloud-two"></div>
+    <div class="pastel-cloud cloud-three"></div>
+
+    <div class="botanical-shadow botanical-left"></div>
+    <div class="botanical-shadow botanical-right"></div>
+
+    <div class="water-layer">
+      <span class="water-line line-one"></span>
+      <span class="water-line line-two"></span>
+      <span class="water-line line-three"></span>
+      <span class="water-line line-four"></span>
+    </div>
+
+    <span class="floating-petal petal-one"></span>
+    <span class="floating-petal petal-two"></span>
+    <span class="floating-petal petal-three"></span>
+    <span class="floating-petal petal-four"></span>
+  </div>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">A small moment for you</p>
+
+      <h1>
+        Mood<span>Play</span>
+      </h1>
+
+      <p class="lead">
+        Share what is resting on your mind. MoodPlay will gently shape a
+        playful experience around the feeling in your words.
+      </p>
+
+      <p class="soft-message">
+        Breathe in slowly. You do not need to explain everything.
+      </p>
+    </section>
+
+    <section class="panel input-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Begin here</p>
+          <h2>How are you feeling?</h2>
+        </div>
+
+        <span class="decorative-flower" aria-hidden="true">✿</span>
+      </div>
+
+      <label class="sr-only" for="moodText">
+        Describe how you are feeling
+      </label>
+
+      <textarea
+        id="moodText"
+        maxlength="1000"
+        placeholder="Today feels a little heavy, but I am trying to slow down..."
+      ></textarea>
+
+      <div class="input-footer">
+        <span>A few honest words are enough.</span>
+        <span id="characterCount">0 / 1000</span>
+      </div>
+
+      <div class="actions">
+        <button id="createButton">
+          <span>Create my little escape</span>
+          <span aria-hidden="true">♡</span>
+        </button>
+
+        <span id="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section id="result" class="panel result-panel hidden">
+      <div class="result-card">
+        <p class="eyebrow">Emotional tone</p>
+        <h2 id="moodLabel"></h2>
+        <p id="moodConfidence"></p>
+      </div>
+
+      <div class="result-card">
+        <p class="eyebrow">Chosen for you</p>
+        <h2 id="gameTitle"></h2>
+        <p id="gameMessage"></p>
+      </div>
+    </section>
+
+    <section id="gameShell" class="panel game-panel hidden">
+      <div class="game-header">
+        <div>
+          <p class="eyebrow">Your peaceful corner</p>
+          <h2 id="activeGameTitle">Your game</h2>
+        </div>
+
+        <button id="restartButton" class="secondary">
+          Begin again
+        </button>
+      </div>
+
+      <div
+        id="gameArea"
+        class="game-area"
+        aria-label="Playable mini-game"
+      ></div>
+    </section>
+
+    <p class="disclaimer">
+      MoodPlay estimates emotional cues from text. It is not a medical or
+      psychological assessment.
+    </p>
+  </main>
+
+  <script type="module" src="/static/app.js"></script>
+
+  <script>
+    const moodText = document.getElementById("moodText");
+    const characterCount = document.getElementById("characterCount");
+
+    moodText?.addEventListener("input", () => {
+      characterCount.textContent = `${moodText.value.length} / 1000`;
+    });
+  </script>
+</body>
+</html>
