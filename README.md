@@ -204,7 +204,20 @@ http://localhost:7860
 
 ## 📸 Screenshots
 
-> *Add screenshots or GIFs here to showcase the interface and mini-games.*
+
+### Home Page
+
+<p align="center">
+  <img src="assets/main-1.png" width="90%">
+</p>
+
+### Emotion Analysis & Games
+
+<p align="center">
+  <img src="assets/game-1.png" width="32%">
+  <img src="assets/game-2.png" width="32%">
+  <img src="assets/game-3.png" width="32%">
+</p>
 
 ---
 
